@@ -31,17 +31,21 @@ body {
   padding: 20px;
 }
 
-/* Calculator Glassmorphism Container */
-.calculator-container {
-  background: var(--calc-bg);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(236, 179, 56, 0.15);
+/* This pseudo-element inside your style.css handles the logo rendering automatically */
+.calculator-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 380px;
-  border-radius: 24px;
-  padding: 24px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 
-              0 0 40px rgba(204, 0, 24, 0.12);
+  height: 100%;
+  background-image: url("https://i.imgur.com/KdfG0uE.png");
+  background-size: 85%;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.18; /* Translucent watermark look */
+  pointer-events: none;
+  z-index: 0;
 }
 
 .calc-header {
