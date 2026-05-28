@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RCB Premium Calculator — Task 02</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="calculator-container">
+        <div class="calc-header">
+            <span>SCT_WD_2</span>
+            <span>PLAY BOLD 👑</span>
+        </div>
+
+        <div class="rcb-logo-container">
+            <img src="https://i.imgur.com/KdfG0uE.png" alt="RCB Logo" class="rcb-logo">
+        </div>
+
+        <div class="calculator-screen">
+            <div id="previous-operand" class="previous-history"></div>
+            <div id="current-display" class="current-input">0</div>
+        </div>
+
+        <div class="calculator-buttons">
+            <button class="btn action-btn" data-action="clear">AC</button>
+            <button class="btn action-btn" data-action="delete">DEL</button>
+            <button class="btn operator-btn" data-value="%">%</button>
+            <button class="btn operator-btn" data-value="/">÷</button>
+
+            <button class="btn rcb-combo-key" data-value="7">7</button>
+            <button class="btn rcb-combo-key" data-value="8">8</button>
+            <button class="btn rcb-combo-key" data-value="9">9</button>
+            <button class="btn operator-btn" data-value="*">&times;</button>
+
+            <button class="btn" data-value="4">4</button>
+            <button class="btn" data-value="5">5</button>
+            <button class="btn" data-value="6">6</button>
+            <button class="btn operator-btn" data-value="-">−</button>
+
+            <button class="btn" data-value="1">1</button>
+            <button class="btn" data-value="2">2</button>
+            <button class="btn" data-value="3">3</button>
+            <button class="btn operator-btn" data-value="+">+</button>
+
+            <button class="btn" data-value="0">0</button>
+            <button class="btn" data-value=".">.</button>
+            <button class="btn equals-btn" data-action="calculate">=</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

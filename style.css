@@ -1,0 +1,201 @@
+:root {
+  /* RCB Official Signature Theme Palette */
+  --rcb-black: #0c0c0d;
+  --rcb-dark-charcoal: #18181c;
+  --rcb-red: #cc0018;
+  --rcb-red-hover: #e6001b;
+  --rcb-gold: #ecb338;
+  --rcb-gold-gaze: rgba(236, 179, 56, 0.15);
+  
+  --bg-gradient: linear-gradient(135deg, var(--rcb-black), #221113);
+  --calc-bg: rgba(24, 24, 28, 0.85);
+  --screen-bg: #050507;
+  --text-main: #f8fafc;
+  --text-muted: #8a8a93;
+  --btn-hover: rgba(255, 255, 255, 0.06);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg-gradient);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Calculator Glassmorphism Container */
+.calculator-container {
+  background: var(--calc-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(236, 179, 56, 0.15);
+  width: 100%;
+  max-width: 380px;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 
+              0 0 40px rgba(204, 0, 24, 0.12);
+}
+
+.calc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  color: var(--rcb-gold);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+/* Logo Alignment */
+.rcb-logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.rcb-logo {
+  height: 65px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(236, 179, 56, 0.4));
+  animation: logo-float 3s ease-in-out infinite;
+}
+
+/* Screen Display */
+.calculator-screen {
+  background: var(--screen-bg);
+  border-radius: 16px;
+  padding: 20px;
+  text-align: right;
+  margin-bottom: 24px;
+  min-height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  word-break: break-all;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.previous-history {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  min-height: 24px;
+  margin-bottom: 6px;
+}
+
+.current-input {
+  color: var(--text-main);
+  font-size: 2.4rem;
+  font-weight: 500;
+  line-height: 1.2;
+  transition: all 0.2s ease;
+}
+
+/* Interactive Grid Layout */
+.calculator-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.btn {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.01);
+  color: var(--text-main);
+  font-size: 1.4rem;
+  font-weight: 500;
+  padding: 18px 0;
+  border-radius: 16px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+.btn:hover {
+  background: var(--btn-hover);
+  border-color: rgba(236, 179, 56, 0.2);
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* Standard Operators styling */
+.operator-btn {
+  color: var(--rcb-gold);
+  background: var(--rcb-gold-gaze);
+  border: 1px solid rgba(236, 179, 56, 0.15);
+}
+.operator-btn:hover {
+  background: rgba(236, 179, 56, 0.3);
+}
+
+/* Action modifiers (AC/DEL) */
+.action-btn {
+  color: #e4e4e7;
+  background: rgba(255, 255, 255, 0.04);
+}
+.action-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Special Glowing Combo Keys (7, 8, 9) */
+.btn.rcb-combo-key {
+  background: rgba(236, 179, 56, 0.22);
+  color: var(--rcb-gold);
+  border: 1px solid var(--rcb-gold);
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(236, 179, 56, 0.15);
+}
+.btn.rcb-combo-key:hover {
+  background: var(--rcb-gold);
+  color: var(--rcb-black);
+  box-shadow: 0 0 18px var(--rcb-gold);
+}
+
+/* Enter/Equals Button stylized with Crimson Red */
+.equals-btn {
+  grid-column: span 2;
+  background: linear-gradient(135deg, var(--rcb-red), #990012);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  box-shadow: 0 4px 15px rgba(204, 0, 24, 0.35);
+}
+.equals-btn:hover {
+  background: linear-gradient(135deg, var(--rcb-red-hover), var(--rcb-red));
+  box-shadow: 0 6px 20px rgba(204, 0, 24, 0.55);
+}
+
+/* Bold Custom Victory Word Target Layout Rules */
+.current-input.rcb-bold-text {
+  color: var(--rcb-gold);
+  font-weight: 900;
+  font-size: 3rem;
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px rgba(236, 179, 56, 0.6);
+  animation: rcb-entrance 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Keyframe Animations */
+@keyframes logo-float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes rcb-entrance {
+  0% { transform: scale(0.6); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
