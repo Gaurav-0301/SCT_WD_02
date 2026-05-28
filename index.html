@@ -3,32 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RCB Premium Calculator — Task 02</title>
+    <title>RCB Premium Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="calculator-container">
+        <!-- Brand & Task Tracking Header -->
         <div class="calc-header">
             <span>SCT_WD_2</span>
             <span>PLAY BOLD 👑</span>
         </div>
 
-        <div class="rcb-logo-container">
-            <img src="https://i.imgur.com/KdfG0uE.png" alt="RCB Logo" class="rcb-logo">
-        </div>
-
+        <!-- Input/Output Screen Panel -->
         <div class="calculator-screen">
             <div id="previous-operand" class="previous-history"></div>
             <div id="current-display" class="current-input">0</div>
         </div>
 
+        <!-- Interactive Calculator Grid -->
         <div class="calculator-buttons">
             <button class="btn action-btn" data-action="clear">AC</button>
             <button class="btn action-btn" data-action="delete">DEL</button>
             <button class="btn operator-btn" data-value="%">%</button>
             <button class="btn operator-btn" data-value="/">÷</button>
 
+            <!-- Three Secret Golden Combination Keys -->
             <button class="btn rcb-combo-key" data-value="7">7</button>
             <button class="btn rcb-combo-key" data-value="8">8</button>
             <button class="btn rcb-combo-key" data-value="9">9</button>
