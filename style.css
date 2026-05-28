@@ -1,18 +1,16 @@
 :root {
-  /* RCB Official Signature Theme Palette */
   --rcb-black: #0c0c0d;
-  --rcb-dark-charcoal: #18181c;
   --rcb-red: #cc0018;
   --rcb-red-hover: #e6001b;
   --rcb-gold: #ecb338;
-  --rcb-gold-gaze: rgba(236, 179, 56, 0.15);
+  --rcb-gold-gaze: rgba(236, 179, 56, 0.2);
   
-  --bg-gradient: linear-gradient(135deg, var(--rcb-black), #221113);
-  --calc-bg: rgba(24, 24, 28, 0.85);
-  --screen-bg: #050507;
+  /* Bold Red & Dark Gradient Background for the whole page */
+  --bg-gradient: linear-gradient(135deg, #3a0008, #0c0c0d, #4a3200);
+  --calc-bg: rgba(20, 20, 25, 0.95); /* Solid dark container */
+  --screen-bg: rgba(0, 0, 0, 0.7);
   --text-main: #f8fafc;
-  --text-muted: #8a8a93;
-  --btn-hover: rgba(255, 255, 255, 0.06);
+  --text-muted: #a1a1aa;
 }
 
 * {
@@ -31,47 +29,29 @@ body {
   padding: 20px;
 }
 
-/* This pseudo-element inside your style.css handles the logo rendering automatically */
-.calculator-container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
+/* Restoring the Calculator Box */
+.calculator-container {
+  background: var(--calc-bg);
+  border: 1.5px solid var(--rcb-gold);
   width: 100%;
-  height: 100%;
-  background-image: url("https://i.imgur.com/KdfG0uE.png");
-  background-size: 85%;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.18; /* Translucent watermark look */
-  pointer-events: none;
-  z-index: 0;
+  max-width: 360px;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9), 
+              0 0 40px rgba(236, 179, 56, 0.15);
+  position: relative;
+  z-index: 10;
 }
 
 .calc-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   color: var(--rcb-gold);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: 1.5px;
-}
-
-/* Logo Alignment */
-.rcb-logo-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.rcb-logo {
-  height: 65px;
-  width: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 0 8px rgba(236, 179, 56, 0.4));
-  animation: logo-float 3s ease-in-out infinite;
 }
 
 /* Screen Display */
@@ -81,13 +61,13 @@ body {
   padding: 20px;
   text-align: right;
   margin-bottom: 24px;
-  min-height: 110px;
+  min-height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   word-break: break-all;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(236, 179, 56, 0.3);
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
 }
 
 .previous-history {
@@ -102,7 +82,6 @@ body {
   font-size: 2.4rem;
   font-weight: 500;
   line-height: 1.2;
-  transition: all 0.2s ease;
 }
 
 /* Interactive Grid Layout */
@@ -113,21 +92,21 @@ body {
 }
 
 .btn {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.01);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.03);
   color: var(--text-main);
   font-size: 1.4rem;
-  font-weight: 500;
-  padding: 18px 0;
-  border-radius: 16px;
+  font-weight: 600;
+  padding: 16px 0;
+  border-radius: 14px;
   cursor: pointer;
   outline: none;
   transition: all 0.15s ease;
 }
 
 .btn:hover {
-  background: var(--btn-hover);
-  border-color: rgba(236, 179, 56, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--rcb-gold);
   transform: translateY(-2px);
 }
 
@@ -135,68 +114,54 @@ body {
   transform: translateY(1px);
 }
 
-/* Standard Operators styling */
+/* Operators */
 .operator-btn {
   color: var(--rcb-gold);
   background: var(--rcb-gold-gaze);
-  border: 1px solid rgba(236, 179, 56, 0.15);
+  border: 1px solid rgba(236, 179, 56, 0.3);
 }
 .operator-btn:hover {
-  background: rgba(236, 179, 56, 0.3);
+  background: rgba(236, 179, 56, 0.4);
 }
 
-/* Action modifiers (AC/DEL) */
+/* AC/DEL */
 .action-btn {
-  color: #e4e4e7;
-  background: rgba(255, 255, 255, 0.04);
-}
-.action-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
+  color: #f4f4f5;
+  background: rgba(255, 255, 255, 0.08);
 }
 
-/* Special Glowing Combo Keys (7, 8, 9) */
+/* Golden Combo Keys (7, 8, 9) */
 .btn.rcb-combo-key {
-  background: rgba(236, 179, 56, 0.22);
+  background: rgba(236, 179, 56, 0.2);
   color: var(--rcb-gold);
   border: 1px solid var(--rcb-gold);
-  font-weight: 700;
-  box-shadow: 0 0 10px rgba(236, 179, 56, 0.15);
+  box-shadow: 0 0 10px rgba(236, 179, 56, 0.2);
 }
 .btn.rcb-combo-key:hover {
   background: var(--rcb-gold);
   color: var(--rcb-black);
-  box-shadow: 0 0 18px var(--rcb-gold);
 }
 
-/* Enter/Equals Button stylized with Crimson Red */
+/* Equals Button */
 .equals-btn {
   grid-column: span 2;
   background: linear-gradient(135deg, var(--rcb-red), #990012);
   color: #fff;
-  font-weight: 700;
   border: none;
-  box-shadow: 0 4px 15px rgba(204, 0, 24, 0.35);
+  box-shadow: 0 4px 15px rgba(204, 0, 24, 0.4);
 }
 .equals-btn:hover {
   background: linear-gradient(135deg, var(--rcb-red-hover), var(--rcb-red));
-  box-shadow: 0 6px 20px rgba(204, 0, 24, 0.55);
 }
 
-/* Bold Custom Victory Word Target Layout Rules */
+/* Bold RCB Victory Text */
 .current-input.rcb-bold-text {
   color: var(--rcb-gold);
   font-weight: 900;
-  font-size: 3rem;
+  font-size: 3.2rem;
   letter-spacing: 2px;
-  text-shadow: 0 0 15px rgba(236, 179, 56, 0.6);
-  animation: rcb-entrance 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-/* Keyframe Animations */
-@keyframes logo-float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-4px); }
-  100% { transform: translateY(0px); }
+  text-shadow: 0 0 15px rgba(236, 179, 56, 0.8);
+  animation: rcb-entrance 0.4s ease-out;
 }
 
 @keyframes rcb-entrance {
